@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ayush Pandey | AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#090d18;--bg2:#0f1624;
+  --accent:#6ee7b7;--accent2:#38bdf8;--accent3:#a78bfa;--amber:#fbbf24;
+  --text:#eef2ff;--muted:#7a90bb;
+  --border:rgba(110,231,183,0.13);
+  --card:rgba(20,29,46,0.9);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.4rem;background:rgba(9,13,24,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent);letter-spacing:-0.5px}
+.nav-links{display:flex;gap:1.8rem}
+.nav-links a{color:var(--muted);font-size:0.85rem;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:all .3s}
+@media(max-width:640px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(9,13,24,0.98);padding:1.2rem 2rem;gap:1.2rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-hamburger{display:flex}
+}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 2.4rem 4rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(110,231,183,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(110,231,183,0.035) 1px,transparent 1px);background-size:56px 56px}
+.glow1{position:absolute;top:-100px;right:-60px;width:560px;height:560px;background:radial-gradient(ellipse,rgba(99,102,241,0.16) 0%,transparent 68%);pointer-events:none}
+.glow2{position:absolute;bottom:-60px;left:-80px;width:460px;height:460px;background:radial-gradient(ellipse,rgba(56,189,248,0.11) 0%,transparent 68%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(110,231,183,0.09);border:1px solid rgba(110,231,183,0.22);border-radius:100px;padding:.32rem .95rem;font-size:.75rem;color:var(--accent);font-weight:500;letter-spacing:.04em;margin-bottom:1.4rem;width:fit-content;animation:fadeUp .6s ease both}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+h1.name{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:800;line-height:1.04;letter-spacing:-2px;animation:fadeUp .6s .1s ease both}
+.name .hi{color:var(--muted);font-size:.45em;font-weight:400;display:block;letter-spacing:0;margin-bottom:.15rem}
+.name .ac{color:var(--accent)}
+.tagline{margin-top:1.1rem;font-size:clamp(.92rem,1.8vw,1.1rem);color:var(--muted);font-weight:300;max-width:500px;line-height:1.65;animation:fadeUp .6s .2s ease both}
+.hero-btns{display:flex;gap:.9rem;margin-top:2rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-p{display:inline-flex;align-items:center;gap:.45rem;background:var(--accent);color:#071a10;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.88rem;padding:.65rem 1.5rem;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(110,231,183,.22)}
+.btn-s{display:inline-flex;align-items:center;gap:.45rem;background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;font-size:.88rem;padding:.65rem 1.5rem;border:1px solid rgba(255,255,255,.14);border-radius:8px;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-s:hover{border-color:var(--accent);color:var(--accent)}
+.stats{display:flex;gap:2.2rem;margin-top:3rem;flex-wrap:wrap;animation:fadeUp .6s .4s ease both}
+.st{display:flex;flex-direction:column;gap:.15rem}
+.sn{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700}
+.sn span{color:var(--accent)}
+.sl{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+
+/* ── SECTIONS ── */
+section{padding:4.5rem 2.4rem}
+.slabel{display:flex;align-items:center;gap:.65rem;font-size:.72rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.7rem}
+.slabel::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h2.stitle{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:700;letter-spacing:-1px;margin-bottom:.5rem}
+.ssub{color:var(--muted);font-size:.9rem;margin-bottom:2.2rem;max-width:460px}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}}
+.about-text p{font-size:.93rem;line-height:1.75;color:var(--muted);margin-bottom:1rem}
+.about-text p strong{color:var(--text)}
+.about-highlights{display:flex;flex-direction:column;gap:.85rem}
+.highlight{display:flex;align-items:flex-start;gap:.85rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem}
+.hl-icon{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
+.hl-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:.2rem}
+.hl-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.4rem;transition:border-color .2s,transform .2s}
+.skill-card:hover{border-color:rgba(110,231,183,.38);transform:translateY(-3px)}
+.sc-head{display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem}
+.sc-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.ai-ic{background:rgba(167,139,250,.16);color:var(--accent3)}
+.ml-ic{background:rgba(110,231,183,.13);color:var(--accent)}
+.cd-ic{background:rgba(56,189,248,.13);color:var(--accent2)}
+.cs-ic{background:rgba(251,191,36,.12);color:var(--amber)}
+.sc-head h3{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:.38rem}
+.tag{font-size:.7rem;padding:.22rem .6rem;border-radius:100px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);color:var(--muted)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.3rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:.85rem;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit}
+.proj-card:hover{border-color:rgba(56,189,248,.38);transform:translateY(-4px)}
+.proj-top{display:flex;justify-content:space-between;align-items:center}
+.proj-num{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;color:var(--accent2);opacity:.55}
+.proj-badge{font-size:.65rem;padding:.18rem .55rem;border-radius:5px;background:rgba(110,231,183,.1);color:var(--accent);border:1px solid rgba(110,231,183,.2)}
+.proj-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;line-height:1.25}
+.proj-desc{font-size:.83rem;color:var(--muted);line-height:1.6}
+.proj-stack{display:flex;flex-wrap:wrap;gap:.32rem;margin-top:auto}
+.stag{font-size:.68rem;padding:.18rem .55rem;border-radius:5px;background:rgba(56,189,248,.09);color:var(--accent2);border:1px solid rgba(56,189,248,.18)}
+.proj-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--muted);text-decoration:none;margin-top:.3rem;transition:color .2s}
+.proj-card:hover .proj-link{color:var(--accent2)}
+
+/* ── ACHIEVEMENTS ── */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem}
+.ach-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s,transform .2s}
+.ach-card:hover{border-color:rgba(167,139,250,.35);transform:translateY(-2px)}
+.ach-icon{font-size:1.6rem;margin-bottom:.2rem}
+.ach-card h3{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:600;line-height:1.3}
+.ach-card p{font-size:.76rem;color:var(--muted);line-height:1.5}
+
+/* ── EDUCATION ── */
+#education{background:var(--bg2)}
+.edu-wrap{max-width:660px;display:flex;flex-direction:column;gap:1.2rem}
+.edu-item{display:grid;grid-template-columns:82px 1fr;gap:1.1rem;align-items:start}
+.edu-yr{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;color:var(--accent);padding-top:.18rem;text-align:right}
+.edu-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem}
+.edu-box h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+.edu-inst{font-size:.8rem;color:var(--muted);margin-bottom:.6rem}
+.echips{display:flex;flex-wrap:wrap;gap:.35rem}
+.echip{font-size:.68rem;padding:.18rem .55rem;border-radius:5px;background:rgba(167,139,250,.09);color:var(--accent3);border:1px solid rgba(167,139,250,.18)}
+
+/* ── CONTACT ── */
+#contact{text-align:center;background:var(--bg);padding:4rem 2.4rem 3rem}
+#contact h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:.75rem}
+#contact .sub{color:var(--muted);font-size:.9rem;margin-bottom:1.8rem}
+.c-links{display:flex;justify-content:center;gap:.85rem;flex-wrap:wrap}
+.cpill{display:inline-flex;align-items:center;gap:.45rem;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:.5rem 1.15rem;font-size:.82rem;color:var(--muted);text-decoration:none;transition:border-color .2s,color .2s}
+.cpill:hover{border-color:var(--accent);color:var(--accent)}
+.footer{margin-top:2.8rem;font-size:.72rem;color:var(--muted);opacity:.4}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ayush.ai</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+  <div class="badge"><span class="dot"></span> Open to Internships &amp; Collaborations</div>
+  <h1 class="name">
+    <span class="hi">Hello, I'm</span>
+    Ayush<br/><span class="ac">Pandey</span>
+  </h1>
+  <p class="tagline">AI/ML Engineering student turning curiosity into code — building intelligent systems that <em>see, think, and protect</em>.</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-p">View My Work →</a>
+    <a href="#contact" class="btn-s">Let's Connect</a>
+  </div>
+  <div class="stats">
+    <div class="st"><span class="sn">2<span>nd</span></span><span class="sl">Year B.Tech</span></div>
+    <div class="st"><span class="sn">5<span>+</span></span><span class="sl">Projects</span></div>
+    <div class="st"><span class="sn">AI<span>/</span>ML</span><span class="sl">Specialization</span></div>
+    <div class="st"><span class="sn">3<span>+</span></span><span class="sl">Achievements</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="slabel">About Me</div>
+  <h2 class="stitle">Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm <strong>Pandey Ayush Shivpujan</strong>, a 2nd year B.Tech student specializing in <strong>Computer Science Engineering (AI &amp; ML)</strong> at Thakur Shyamnarayan Engineering College, Mumbai.</p>
+      <p>I'm passionate about building things that matter — from cybersecurity tools that protect people's privacy to intelligent systems powered by machine learning. I believe great engineering starts with curiosity and ends with impact.</p>
+      <p>A state-level science competition participant, hackathon contender, and consistent academic achiever — I'm always looking for my next challenge.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight">
+        <div class="hl-icon">🛡️</div>
+        <div>
+          <div class="hl-title">Cybersecurity &amp; AI</div>
+          <div class="hl-desc">Building real-world security tools using computer vision and machine learning — like Noisy Neighbor, a shoulder-surfing detection system.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="hl-icon">🔬</div>
+        <div>
+          <div class="hl-title">Science &amp; Research Mindset</div>
+          <div class="hl-desc">State-level Bal Vaigyaniuk participant — driven by a deep love for science, experimentation, and solving real problems from first principles.</div>
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="hl-icon">⚡</div>
+        <div>
+          <div class="hl-title">Vibe Coder</div>
+          <div class="hl-desc">Fast, creative, and experimental — I prototype ideas quickly and iterate until they work. I code with energy and purpose.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="slabel">Skills</div>
+  <h2 class="stitle">Tech Stack</h2>
+  <p class="ssub">Languages, frameworks, and domains I actively work with.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="sc-head"><div class="sc-icon ai-ic">🤖</div><h3>AI &amp; Machine Learning</h3></div>
+      <div class="tags"><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span><span class="tag">NLP</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="sc-head"><div class="sc-icon ml-ic">🐍</div><h3>Python Ecosystem</h3></div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="sc-head"><div class="sc-icon cd-ic">💻</div><h3>Programming &amp; Web</h3></div>
+      <div class="tags"><span class="tag">C</span><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Git &amp; GitHub</span><span class="tag">Vibe Coding</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="sc-head"><div class="sc-icon cs-ic">🔐</div><h3>Cybersecurity &amp; CS</h3></div>
+      <div class="tags"><span class="tag">Face Detection</span><span class="tag">Shoulder Surfing Prevention</span><span class="tag">Data Structures</span><span class="tag">Algorithms</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="slabel">Projects</div>
+  <h2 class="stitle">What I've Built</h2>
+  <p class="ssub">Real projects — from cybersecurity to Python games — each one a learning milestone.</p>
+  <div class="proj-grid">
+    <a class="proj-card" href="https://github.com/ayushp3442/NOISY-NEIGHBOR" target="_blank">
+      <div class="proj-top"><span class="proj-num">01</span><span class="proj-badge">Featured</span></div>
+      <h3>🛡️ Noisy Neighbor</h3>
+      <p class="proj-desc">A cybersecurity tool that uses real-time face detection to prevent shoulder surfing. Detects multiple faces via webcam and alerts the user when suspicious activity is spotted. Served through a Flask web interface.</p>
+      <div class="proj-stack"><span class="stag">Python</span><span class="stag">Flask</span><span class="stag">OpenCV</span><span class="stag">MediaPipe</span><span class="stag">HTML/CSS/JS</span></div>
+      <span class="proj-link">View on GitHub →</span>
+    </a>
+    <a class="proj-card" href="https://github.com/ayushp3442/Snake-Water-Gun-Game" target="_blank">
+      <div class="proj-top"><span class="proj-num">02</span><span class="proj-badge">GitHub</span></div>
+      <h3>🎮 Snake Water Gun Game</h3>
+      <p class="proj-desc">A Python implementation of the classic Snake-Water-Gun game (like Rock-Paper-Scissors). Demonstrates core programming logic, conditionals, loops, and user input handling.</p>
+      <div class="proj-stack"><span class="stag">Python</span><span class="stag">CLI</span><span class="stag">Game Logic</span></div>
+      <span class="proj-link">View on GitHub →</span>
+    </a>
+    <div class="proj-card" style="cursor:default">
+      <div class="proj-top"><span class="proj-num">03</span><span class="proj-badge">Python</span></div>
+      <h3>🌦️ Weather CLI App</h3>
+      <p class="proj-desc">A command-line weather application that fetches real-time weather data using an open API. Displays temperature, humidity, and conditions for any city — a great intro to APIs and JSON parsing.</p>
+      <div class="proj-stack"><span class="stag">Python</span><span class="stag">REST API</span><span class="stag">JSON</span><span class="stag">Requests</span></div>
+    </div>
+    <div class="proj-card" style="cursor:default">
+      <div class="proj-top"><span class="proj-num">04</span><span class="proj-badge">Python</span></div>
+      <h3>📊 Student Grade Analyzer</h3>
+      <p class="proj-desc">A Python program that takes student marks as input, calculates grades, GPA, class averages, and generates a simple performance report — using file handling and data structures.</p>
+      <div class="proj-stack"><span class="stag">Python</span><span class="stag">File I/O</span><span class="stag">Data Structures</span><span class="stag">Reports</span></div>
+    </div>
+    <div class="proj-card" style="cursor:default">
+      <div class="proj-top"><span class="proj-num">05</span><span class="proj-badge">Python</span></div>
+      <h3>🤖 Chatbot with NLTK</h3>
+      <p class="proj-desc">A rule-based chatbot built using Python and NLTK that can answer common questions through keyword matching and intent detection — a hands-on intro to natural language processing.</p>
+      <div class="proj-stack"><span class="stag">Python</span><span class="stag">NLTK</span><span class="stag">NLP</span><span class="stag">Regex</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="slabel">Achievements</div>
+  <h2 class="stitle">Milestones</h2>
+  <p class="ssub">Academic excellence, scientific curiosity, and competitive spirit.</p>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <div class="ach-icon">🥇</div>
+      <h3>SSC Topper — School &amp; Taluka</h3>
+      <p>Secured the highest percentage in SSC examinations across both school and taluka level, demonstrating strong academic consistency.</p>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">🏆</div>
+      <h3>HSC Topper — School &amp; Taluka</h3>
+      <p>Achieved the highest percentage in HSC (12th standard) in both school and taluka — a back-to-back academic distinction.</p>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">🔬</div>
+      <h3>State-Level Bal Vaigyaniuk</h3>
+      <p>Represented and participated at the state level in Bal Vaigyaniuk, a prestigious science talent competition for young innovators.</p>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">💡</div>
+      <h3>Hackathon Participant</h3>
+      <p>Participated in a hackathon, working under time pressure to build tech solutions — sharpening problem-solving and teamwork skills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="slabel">Education</div>
+  <h2 class="stitle">Academic Journey</h2>
+  <p class="ssub">Building a strong CS foundation with an AI/ML specialization.</p>
+  <div class="edu-wrap">
+    <div class="edu-item">
+      <div class="edu-yr">2025–2029</div>
+      <div class="edu-box">
+        <h3>B.Tech — CSE (Artificial Intelligence &amp; Machine Learning)</h3>
+        <div class="edu-inst">Thakur Shyamnarayan Engineering College, Mumbai · 2nd Year</div>
+        <div class="echips">
+          <span class="echip">Machine Learning</span><span class="echip">Data Structures</span><span class="echip">DBMS</span><span class="echip">Python</span><span class="echip">Mathematics for AI</span><span class="echip">Computer Networks</span>
+        </div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-yr">2023–2025</div>
+      <div class="edu-box">
+        <h3>HSC (12th) — Science · Taluka Topper</h3>
+        <div class="edu-inst">Upasana Lions English Medium School, Vapi, Gujarat</div>
+        <div class="echips">
+          <span class="echip">Physics</span><span class="echip">Chemistry</span><span class="echip">Mathematics</span><span class="echip">Computer Science</span>
+        </div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-yr">2023</div>
+      <div class="edu-box">
+        <h3>SSC (10th) — Taluka Topper</h3>
+        <div class="edu-inst">Upasana Lions English Medium School, Vapi, Gujarat</div>
+        <div class="echips">
+          <span class="echip">All Subjects</span><span class="echip">Highest Percentage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Let's Build Something ✦</h2>
+  <p class="sub">Open to internships, collaborations, and interesting ideas. Let's connect!</p>
+  <div class="c-links">
+    <a href="mailto:ayushp34422@gmail.com" class="cpill">✉ ayushp34422@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ayush-pandey-35867b391" target="_blank" class="cpill">in LinkedIn</a>
+    <a href="https://github.com/ayushp3442" target="_blank" class="cpill">⌥ GitHub</a>
+  </div>
+  <p class="footer">Designed &amp; built by Ayush Pandey · 2025 · TSEC Mumbai</p>
+</section>
+
+<script>
+  // Close mobile menu on link click
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
