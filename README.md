@@ -72,4 +72,3 @@ To deploy your own fork:
 ---
 
 <p align="center">Made with ❤️ by Ayush Pandey · TSEC Mumbai · 2025</p>
-
